@@ -30,4 +30,14 @@ jobs:
         run: echo "First step"
       - name: Second step job3
         run: echo "Second step"
+
+  job4:
+    needs: job2
+    name: This is the 4th Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job4
+        run: echo "First step"
+      - name: Second step job4
+        run: echo "Second step"
     
