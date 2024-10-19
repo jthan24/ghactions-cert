@@ -23,7 +23,7 @@ jobs:
   
   job2:
     env:
-      JOB_VAR_1: JOB1_var1
+      JOB_VAR_1: JOB2_var1
       JOB_VAR_2: JOB1_var2
     name: This is the 2nd Job
     runs-on: ubuntu-latest
