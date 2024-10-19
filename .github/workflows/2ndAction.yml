@@ -1,0 +1,36 @@
+name: My first action to test
+
+on: push
+
+env:
+  VAR_1: Value var1
+  VAR_2: Value var2
+
+jobs:
+
+    
+  job1:
+    env:
+      JOB_VAR_1: JOB1_var1
+      JOB_VAR_2: JOB1_var2
+    name: This is the 1st Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job1
+        run: echo "First step $VAR_1 ${{env.JOB_VAR_1}}"
+      - name: Second step job1
+        run: echo "Second step $VAR_2 ${{env.JOB_VAR_2}}"
+  
+  job2:
+    env:
+      JOB_VAR_1: JOB1_var1
+      JOB_VAR_2: JOB1_var2
+    name: This is the 2nd Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job2
+        env:
+          STEP_VAR1: STEP_var1
+        run: echo "First step $VAR_1 ${{env.JOB_VAR_1}} ${{env.STEP_VAR1}}"
+      - name: Second step job2
+        run: echo "Second step"
