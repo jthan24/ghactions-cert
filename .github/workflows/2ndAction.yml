@@ -1,4 +1,4 @@
-name: My first action to test
+name: My 2nd action to test Env Vars
 
 on: push
 
