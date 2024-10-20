@@ -39,7 +39,7 @@ jobs:
     env:
       JOB_VAR_1: ${{ vars.REPOSITORY_VARIABLE_1 }}
       JOB_VAR_2: ${{ secrets.REPOSITORY_SECRET_1 }}
-    name: This is the 2nd Job
+    name: This is the 3rd Job
     runs-on: ubuntu-latest
     steps:
       - name: First step job2
