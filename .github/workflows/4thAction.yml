@@ -1,0 +1,44 @@
+name: My 3rd action to test
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+
+
+jobs:
+  job1:
+    strategy:
+      matrix:
+        version: [10, 12, 14]
+        os: [ubuntu-latest, windows-latest]
+    timeout-minutes: 1
+
+    name: This is the 1st Job
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: First step job1
+        run: echo "First step"
+      - name: Second step job1
+        run: echo "Second step"
+  
+  job2:
+    timeout-minutes: 1
+    needs: job1
+    name: This is the 2nd Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job2
+        run: echo "First step"
+      - name: Second step job2
+        run: echo "Second step"
+      
