@@ -1,0 +1,63 @@
+name: My first action to test
+
+on: push
+
+jobs:
+  job1:
+    name: This is the 1st Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job1
+        run: echo "First step"
+      - name: Second step job1
+        run: echo "Second step"
+  
+  job2:
+    name: This is the 2nd Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job2
+        run: echo "First step"
+      - name: Second step job2
+        run: echo "Second step"
+
+  job3:
+    needs: job1
+    name: This is the 3rd Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job3
+        run: echo "First step"
+      - name: Second step job3
+        run: echo "Second step"
+
+  job4:
+    needs: job2
+    name: This is the 4th Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job4
+        run: echo "First step"
+      - name: Second step job4
+        run: echo "Second step"
+
+  job5:
+    needs: [job1, job2]
+    name: This is the 5th Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job5
+        run: echo "First step"
+      - name: Second step job5
+        run: echo "Second step"
+  
+  job6:
+    needs: [job1, job2, job3, job4]
+    name: This is the 6th Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job6
+        run: echo "First step"
+      - name: Second step job6
+        run: echo "Second step"
+    

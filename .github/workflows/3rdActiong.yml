@@ -1,0 +1,35 @@
+name: My 3rd action to test
+
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+
+
+jobs:
+  job1:
+    name: This is the 1st Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job1
+        run: echo "First step"
+      - name: Second step job1
+        run: echo "Second step"
+  
+  job2:
+    needs: job1
+    name: This is the 2nd Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job2
+        run: echo "First step"
+      - name: Second step job2
+        run: echo "Second step"
