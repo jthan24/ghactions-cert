@@ -16,6 +16,8 @@ on:
 
 jobs:
   job1:
+    timeout-minutes: 1
+
     name: This is the 1st Job
     runs-on: ubuntu-latest
     steps:
@@ -25,6 +27,7 @@ jobs:
         run: echo "Second step"
   
   job2:
+    timeout-minutes: 1
     needs: job1
     concurrency: 
       group: this is a test for currency
