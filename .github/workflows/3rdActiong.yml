@@ -26,6 +26,9 @@ jobs:
   
   job2:
     needs: job1
+    concurrency: 
+      group: this is a test for currency
+      cancel-in-progress: true
     name: This is the 2nd Job
     runs-on: ubuntu-latest
     steps:
@@ -33,3 +36,6 @@ jobs:
         run: echo "First step"
       - name: Second step job2
         run: echo "Second step"
+      - name: 3rd step job2
+        run: |
+          sleep 360
