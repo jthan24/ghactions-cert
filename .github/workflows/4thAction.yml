@@ -21,6 +21,12 @@ jobs:
       matrix:
         version: [10, 12, 14]
         os: [ubuntu-latest, windows-latest]
+        exclude:
+          - os: windows-latest
+            version: 14
+        include:
+          - os: ubuntu-latest
+            version: 16
     timeout-minutes: 1
 
     name: This is the 1st Job
