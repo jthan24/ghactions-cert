@@ -34,3 +34,17 @@ jobs:
         run: echo "First step $VAR_1 ${{env.JOB_VAR_1}} ${{env.STEP_VAR1}}"
       - name: Second step job2
         run: echo "Second step"
+
+  job3:
+    env:
+      JOB_VAR_1: ${{ vars.REPOSITORY_VARIABLE_1 }}
+      JOB_VAR_2: ${{ secrets.REPOSITORY_SECRET_1 }}
+    name: This is the 2nd Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job2
+        env:
+          STEP_VAR1: STEP_var1
+        run: echo "First step var from repository config ${{env.JOB_VAR_1}}"
+      - name: Second step job2
+        run: echo "Second step secret from repository config ${{env.JOB_VAR_2}}"
