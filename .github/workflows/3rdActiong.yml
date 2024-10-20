@@ -2,6 +2,17 @@ name: My 3rd action to test
 
 on: 
   workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+
 
 jobs:
   job1:
