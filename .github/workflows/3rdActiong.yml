@@ -1,6 +1,6 @@
 name: My 3rd action to test
 
-on: workflow_dispatch
+on: push
 
 jobs:
   job1:
