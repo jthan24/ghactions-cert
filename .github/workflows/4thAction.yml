@@ -18,6 +18,8 @@ on:
 jobs:
   job1:
     strategy:
+      max-parallel: 1
+      fail-fast: false
       matrix:
         version: [10, 12, 14]
         os: [ubuntu-latest, windows-latest]
